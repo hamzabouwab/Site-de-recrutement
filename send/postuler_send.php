@@ -7,7 +7,7 @@ $date_naiss=trim($_POST['date_naiss']);
 $cin=trim($_POST['cin']);
 
 
-      $query="insert into candidat(ref,nom_complet,date_naiss,cin) values('$ref','$nom_complet','$date_naiss','$cin')";
+      $query="insert into candidats(ref,nom_complet,date_naiss,cin) values('$ref','$nom_complet','$date_naiss','$cin')";
 
       if($conn->query($query)){
          echo '<h2>Inscription complete !</h2>';

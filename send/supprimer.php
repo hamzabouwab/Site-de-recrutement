@@ -1,7 +1,7 @@
 <?php 
 include 'sql.php';
 $ref=$_POST["ref"];
-$sql = "delete from offre where ref='$ref'";
+$sql = "delete from offres where ref='$ref'";
 if(mysqli_query($conn,$sql)){
    header("refresh:5;url=../index.php");
    die("Supprimé avec succés !");

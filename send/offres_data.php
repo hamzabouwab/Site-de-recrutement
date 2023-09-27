@@ -9,7 +9,7 @@ $nombre_poste = $_POST['nbr_poste']; // Corrected the name to 'nbr_poste'
 $grade = $_POST['grade'];
 $specialite = $_POST['specialite'];
     // Construct the SQL query
-    $sql = "INSERT INTO offre (ref,recruteur, date_debut, date_fin, nombre_poste, grade, specialite) VALUES (? , ? , ? , ? , ? , ? , ?)";
+    $sql = "INSERT INTO offres (ref,recruteur, date_debut, date_fin, nombre_poste, grade, specialite) VALUES (? , ? , ? , ? , ? , ? , ?)";
     // Prepare the statement
     $stmt = $connection->prepare($sql);
     // Bind parameters to the statement

@@ -110,14 +110,14 @@ TRAVAIL TEMPORAIRE ET RECRUTEMENT</h1>
                   <div class="cards position-relative" style="min-height:50vh;">
                      <?php
                         $server="localhost";
-                        $database="school";
+                        $database="recrutement";
                         $username="root";
                         $password="";
                         $conn=mysqli_connect($server,$username,$password,$database);
                         if($conn->connect_error){
                            die("connection failed".$conn->connect_error);
                         }else{
-                           $sql="select ref,recruteur,date_debut,date_fin,nombre_poste,grade,specialite from offre";
+                           $sql="select ref,recruteur,date_debut,date_fin,nombre_poste,grade,specialite from offres";
                            $result=$conn->query($sql);
                            if($result->num_rows==0){
                               echo '<h2 class="text-center w-100" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);">Pas d\'offre pour le moment !</h2>';
