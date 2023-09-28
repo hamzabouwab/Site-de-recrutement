@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Wix+Madefor+Display:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Rubik:wght@300;400;500;600;700;800;900&family=Wix+Madefor+Display:wght@400;500;600;700;800&display=swap');
 
 *{
    
@@ -162,12 +162,34 @@ body{
 ul{
    list-style-type: circle;
 }
+.navbar-toggler{
+   position: relative !important;
+   height: 40px;
+   width: 50px;
+}
+.navbar-toggler-custom-icon{
+   position: absolute;
+   display: flex;
+   width:35px;
+   height:4px;
+   border-radius: 4px;
+   background-color: #696969;
+   left: 50%;
+   right: 50%;
+   transform-origin: center;
+   transition:.3s ease;
+   transform: translate(-50%,calc(-50% + var(--i) * 9px)) ;
+   
+    
+}
+.navbar-toggler-custom-icon-animate{
+   transform: translate(-50%,-50% ) rotate(calc(45deg * var(--i)));
+   opacity: calc(var(--i) * var(--i) );
+}
 @media screen and (min-width:768px) {
    .cards{
       grid-template-columns: 1fr 1fr;
-
    }
-   
 }
 @media screen and (min-width:1200px) {
    .cards{

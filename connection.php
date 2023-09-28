@@ -28,7 +28,9 @@ if(isset($_SESSION["name"])){
          <a class="navbar-brand fw-bolder " href="index.php"><i class="fa-sharp fa-solid fa-briefcase fa-2xl"></i></a>
           <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
              aria-expanded="false" aria-label="Toggle navigation">
-             <span class="navbar-toggler-icon"></span>
+             <span class="navbar-toggler-custom-icon" style="--i:-1"></span>
+             <span class="navbar-toggler-custom-icon" style="--i:0"></span>
+             <span class="navbar-toggler-custom-icon" style="--i:1"></span>
           </button>
           <div class="collapse navbar-collapse" id="collapsibleNavId">
              <ul class="navbar-nav me-auto mt-lg-0 mx-auto text-center">
@@ -87,8 +89,8 @@ if(isset($_SESSION["name"])){
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
 integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
   </script>
-  <script src="script/script.js"></script>
-  <script src="script/connection.js"></script>
+  <script type="module" src="./script/connection.js"></script>
+  <script type="module" src="./script/script.js"></script>
 </body>
 
 </html>

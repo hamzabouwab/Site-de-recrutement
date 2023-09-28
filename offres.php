@@ -23,7 +23,9 @@ define('My site',true);
          <a class="navbar-brand fw-bolder " href="index.php"><i class="fa-sharp fa-solid fa-briefcase fa-2xl"></i></a>
           <button class="navbar-toggler d-lg-none " type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
              aria-expanded="false" aria-label="Toggle navigation">
-             <span class="navbar-toggler-icon"></span>
+             <span class="navbar-toggler-custom-icon" style="--i:-1"></span>
+             <span class="navbar-toggler-custom-icon" style="--i:0"></span>
+             <span class="navbar-toggler-custom-icon" style="--i:1"></span>
           </button>
           <div class="collapse navbar-collapse" id="collapsibleNavId">
              <ul class="navbar-nav mt-lg-0 me-auto text-center  ps-md-5">
@@ -90,10 +92,6 @@ define('My site',true);
          <form action="send/offres_data.php" method="post" class="fw-bolder" enctype="multipart/form-data">
             <div class="container d-flex justify-content-center align-items-center flex-column py-5" style="min-height: calc(100vh - 90px);">
                <div class="col-12 col-sm-8 col-md-6  mx-auto p-5 bg-white shadow-lg rounded-3">
-                  <div class="mb-3">
-                     <label for="" class="form-label">Réference</label>
-                     <input type="text" class="custom-input" name="ref" id="ref" required>
-                  </div>
                   <div class="mb-3">
                      <label for="" class="form-label">Nom d'établissement</label>
                      <input type="text" class="custom-input" name="recruteur" id="recruteur" required>

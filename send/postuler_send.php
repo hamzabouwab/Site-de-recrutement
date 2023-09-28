@@ -2,12 +2,12 @@
 session_start();
 include 'sql.php';
 $nom_complet=trim($_POST['nom_complet']);
-$ref=trim($_POST['ref']);
 $date_naiss=trim($_POST['date_naiss']);
 $cin=trim($_POST['cin']);
+$ref=trim($_POST['ref']);
 
 
-      $query="insert into candidats(ref,nom_complet,date_naiss,cin) values('$ref','$nom_complet','$date_naiss','$cin')";
+      $query="insert into candidats(nom_complet,cin,date_naiss,ref) values('$nom_complet','$cin','$date_naiss','$ref')";
 
       if($conn->query($query)){
          echo '<h2>Inscription complete !</h2>';

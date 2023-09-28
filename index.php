@@ -25,7 +25,9 @@ define('My site',true);
           <a class="navbar-brand fw-bolder " href="index.php"><i class="fa-sharp fa-solid fa-briefcase fa-2xl"></i></a>
           <button class="navbar-toggler d-lg-none " type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
              aria-expanded="false" aria-label="Toggle navigation">
-             <span class="navbar-toggler-icon"></span>
+             <span class="navbar-toggler-custom-icon" style="--i:-1"></span>
+             <span class="navbar-toggler-custom-icon" style="--i:0"></span>
+             <span class="navbar-toggler-custom-icon" style="--i:1"></span>
           </button>
           <div class="collapse navbar-collapse" id="collapsibleNavId">
              <ul class="navbar-nav mt-lg-0 me-auto text-center ps-md-5">
@@ -102,8 +104,13 @@ TRAVAIL TEMPORAIRE ET RECRUTEMENT</h1>
             <a href="#offres">Nos offres !</a>
          </div>
       </section>
-      <section class="offres py-5 bg-light" id="offres">
+      <section class="offres py-5 bg-light text-center" id="offres">
             <div class="container py-5">
+               <div class="mb-5">
+                  <h1 class="fw-bolder">LES OFFRES DISPONIBLES</h1>
+                  <hr>
+
+               </div>
                   <!-- <div class="mb-3">
                      <input type="search" class="form-control text-center py-4 rounded-0 mx-0 border-0 bg-dark rounded-3 text-light shadow fw-bold" name="search" id="search" placeholder="Ecrire quelque chose à chercher">
                   </div> -->
@@ -117,42 +124,44 @@ TRAVAIL TEMPORAIRE ET RECRUTEMENT</h1>
                         if($conn->connect_error){
                            die("connection failed".$conn->connect_error);
                         }else{
-                           $sql="select ref,recruteur,date_debut,date_fin,nombre_poste,grade,specialite from offres";
+                           $sql="select id,recruteur,date_debut,date_fin,nombre_poste,grade,specialite from offres";
                            $result=$conn->query($sql);
                            if($result->num_rows==0){
-                              echo '<h2 class="text-center w-100" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);">Pas d\'offre pour le moment !</h2>';
+                              echo '<h2 class="text-center w-100" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);">Pas d\'offres pour le moment !</h2>';
                            }else{
                               
                               while($row=$result->fetch_assoc()){
                                  $btn='';
                               if(!isset($_SESSION["name"])){
-                                 $btn='<a href="postuler.php" type="submit" class="btn btn-dark mx-auto rounded-pill w-100 fw-bold col align-self-end">Postuler</a>';
+                                 $btn='<div class="mt-auto ">
+                                 <a href="postuler.php" type="submit" class="btn btn-dark rounded-pill fw-bold col-12">Postuler</a>
+                                 </div>';
                               }
                                     echo '
                                     
-                                    <div class=" p-5 bg-light shadow rounded-3 position-relative">
+                                    <div class=" px-5 py-4 bg-light shadow rounded-3 d-flex flex-column text-start" >
 
-                                    <div class="mb-4">
+                                    <div class="mb-3 ">
                                        <label for="" class="form-label text-muted ">Réference :</label>
-                                       <p  class="lead fw-bold ">'.$row['ref'].'</p>
+                                       <p  class="lead fw-bold ">'.$row['id'].'</p>
                                     </div>
-                                    <div class="mb-4">
+                                    <div class="mb-3">
                                        <label for="" class="form-label text-muted ">Nom d\'établissement :</label>
                                        <p  class="lead fw-bold ">'.$row['recruteur'].'</p>
                                     </div>
-                                    <div class="mb-4">
+                                    <div class="mb-3">
                                        <label for="" class="form-label text-muted ">Date de début de depôt de dossiers :</label>
                                        <p  class="lead fw-bold ">'.$row['date_debut'].'</p>
                                     </div>
-                                    <div class="mb-4">
+                                    <div class="mb-3">
                                        <label for="" class="form-label text-muted ">Date de fin de depôt de dossiers :</label>
                                        <p  class="lead fw-bold ">'.$row['date_fin'].'</p>
                                     </div>
-                                    <div class="mb-4">
+                                    <div class="mb-3">
                                        <label for="" class="form-label text-muted ">Nombre de postes :</label>
                                        <p  class="lead fw-bold ">'.$row['nombre_poste'].' poste(s)</p>
                                     </div>
-                                    <div class="mb-4">
+                                    <div class="mb-3">
                                        <label for="" class="form-label text-muted ">Grade :</label>
                                        <p  class="lead fw-bold ">'.$row['grade'].'</p>
                                     </div>
@@ -160,10 +169,8 @@ TRAVAIL TEMPORAIRE ET RECRUTEMENT</h1>
                                        <label for="" class="form-label text-muted ">Spécialité :</label>
                                        <p  class="lead fw-bold ">'.$row['specialite'].'</p>
                                     </div>
-                                    <div class="d-flex align-items-end position-absolute bottom-0 start-0 w-100 p-5">
-                                    '.$btn.'
-                                    </div>
-                                    </div>
+                                    '.$btn.
+                                    '</div>
                                     ';
                                  }
                               }
@@ -196,9 +203,9 @@ TRAVAIL TEMPORAIRE ET RECRUTEMENT</h1>
     <!-- place footer here -->
     <div class="col-3 mx-auto ">
       <ul class="social-media mb-0">
-         <li><a href="https://web.facebook.com/saad.kounima"><i class="fa fa-brands fa-facebook "></i></a></li>
+         <li><a target="_blank" href="https://web.facebook.com/redkay.hamza"><i class="fa fa-brands fa-facebook "></i></a></li>
          <li><a href="#" id="whatsapp"><i class="fa fa-brands fa-whatsapp"></i></a></li>
-         <li><a href="https://www.instagram.com/saadkounima/"><i class="fa fa-brands fa-instagram"></i></a></li>
+         <li><a target="_blank" href="https://www.instagram.com/hamzabouwab/"><i class="fa fa-brands fa-instagram"></i></a></li>
       </ul>
     </div>
   </footer>
@@ -210,8 +217,9 @@ TRAVAIL TEMPORAIRE ET RECRUTEMENT</h1>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
 integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
   </script>
-  <script src="script/script.js"></script>
-  <script src="script/index.js"></script>
+  <script type="module" src="./script/index.js"></script>
+  <script type="module" src="./script/script.js"></script>
+  <script src="data.js"></script>
 </body>
 
 </html>

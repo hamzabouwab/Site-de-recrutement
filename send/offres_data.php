@@ -1,7 +1,6 @@
 <?php
 include 'sql.php';
 // Get form data
-$ref = $_POST['ref'];
 $recruteur = $_POST['recruteur'];
 $date_debut = $_POST['date_debut'];
 $date_fin = $_POST['date_fin'];
@@ -9,11 +8,11 @@ $nombre_poste = $_POST['nbr_poste']; // Corrected the name to 'nbr_poste'
 $grade = $_POST['grade'];
 $specialite = $_POST['specialite'];
     // Construct the SQL query
-    $sql = "INSERT INTO offres (ref,recruteur, date_debut, date_fin, nombre_poste, grade, specialite) VALUES (? , ? , ? , ? , ? , ? , ?)";
+    $sql = "INSERT INTO offres (recruteur, date_debut, date_fin, nombre_poste, grade, specialite) VALUES ( ? , ? , ? , ? , ? , ?)";
     // Prepare the statement
-    $stmt = $connection->prepare($sql);
+    $stmt = $conn->prepare($sql);
     // Bind parameters to the statement
-    $stmt->bind_param("ssssiss",$ref, $recruteur, $date_debut, $date_fin, $nombre_poste, $grade, $specialite);
+    $stmt->bind_param("sssiss", $recruteur, $date_debut, $date_fin, $nombre_poste, $grade, $specialite);
     // Execute the statement
     if ($stmt->execute()) {
         echo '<h3>Offre Ajoutée avec succés</h3>';
@@ -24,5 +23,5 @@ $specialite = $_POST['specialite'];
     }
     // Close the statement
     $stmt->close();
-$connection->close();
+$conn->close();
 ?>

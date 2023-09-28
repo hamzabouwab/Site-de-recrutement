@@ -29,3 +29,15 @@ navLinks.forEach(item=>{
       stickAnima.style.left=current.left
    })
 })
+export function animate_navbar(){
+
+   //animate navbar icon 
+   const navbarToggler= document.querySelector(".navbar-toggler")
+   const navbarTogglerIcon= document.querySelectorAll(".navbar-toggler-custom-icon")
+   
+   navbarToggler.addEventListener("click",()=>{
+      navbarTogglerIcon.forEach(icon=>{
+         icon.classList.toggle("navbar-toggler-custom-icon-animate")
+      })
+   })
+}
