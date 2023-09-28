@@ -201,8 +201,8 @@ TRAVAIL TEMPORAIRE ET RECRUTEMENT</h1>
   </main>
   <footer class="text-center bg-dark text-light py-4" id="contact" style='--bs-bg-opacity:.9'>
     <!-- place footer here -->
-    <div class="col-3 mx-auto ">
-      <ul class="social-media mb-0">
+    <div class="col-3 mx-auto">
+      <ul class="social-media mb-0 d-flex justify-content-center p-0">
          <li><a target="_blank" href="https://web.facebook.com/redkay.hamza"><i class="fa fa-brands fa-facebook "></i></a></li>
          <li><a href="#" id="whatsapp"><i class="fa fa-brands fa-whatsapp"></i></a></li>
          <li><a target="_blank" href="https://www.instagram.com/hamzabouwab/"><i class="fa fa-brands fa-instagram"></i></a></li>

@@ -114,7 +114,7 @@ body{
 .social-media{
    display: flex;
    list-style: none;
-   gap: 15px;
+   gap:15px;
 }
 .social-media li{
    width: 50px;
