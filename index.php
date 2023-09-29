@@ -24,7 +24,7 @@ define('My site',true);
 
   <header>
     <!-- place navbar here -->
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark py-4">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-4">
          <div class="container d-flex align-items-center">
           <a class="navbar-brand fw-bolder " href="index.php"><i class="fa-sharp fa-solid fa-briefcase fa-2xl"></i></a>
           <button class="navbar-toggler d-lg-none " type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
@@ -34,8 +34,8 @@ define('My site',true);
              <span class="navbar-toggler-custom-icon" style="--i:1"></span>
           </button>
           <div class="collapse navbar-collapse" id="collapsibleNavId">
-             <ul class="navbar-nav mt-lg-0 me-auto text-center ps-md-5">
-                <span class="stick-animation d-none d-md-block"></span>
+             <ul class="navbar-nav mt-lg-0 me-auto text-center ps-lg-5">
+                <span class="stick-animation d-none d-lg-block"></span>
                 <hr class="border-light">
                 <li class="nav-item">
                    <a class="nav-link active" href="index.php" >Accueil</a>
@@ -65,11 +65,13 @@ define('My site',true);
             if(!isset($_SESSION["name"])){
 
                   echo '
-                        <div class=" ms-auto d-none d-md-flex">
+                  <hr class="border-light">
+
+                        <div class=" ms-auto d-none d-lg-flex">
                            <a href="connection.php" class="btn btn-outline-light rounded-0 border border-2">Se connecter</a>
                         </div>';
             }else{
-               echo '<div class="d-none d-md-flex ms-auto">
+               echo '<div class="d-none d-lg-flex ms-auto">
                <form action="send/destruct.php" method="post" class="d-flex gap-3">
                            <p class="text-light h-100 d-flex align-items-center" >user : '.$_SESSION["name"].'</p>
                            <button type="submit" name="destruct" id="destruct" class="position-relative btn btn-outline-light rounded-circle border border-2" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Tooltip on bottom" ><i class="fa-solid fa-right-from-bracket"></i><span class="text-dark fw-bold bg-light p-2 rounded-3" id="deconnection">Deconnection</span></button>
@@ -81,13 +83,14 @@ define('My site',true);
             if(!isset($_SESSION["name"])){
 
                   echo '
-                  <hr class="border-light">
-                  <div class=" d-flex d-md-none">
+                   
+                  <div class="d-flex d-lg-none ">
                            <a href="connection.php" class="btn btn-outline-light rounded-2 border border-2 mx-auto">Se connecter</a>
                         </div>';
             }else{
-                  echo '<hr class="border-light">
-                  <div class="d-flex d-md-none ">
+                  echo '
+                  <hr class="border-light">
+                  <div class="d-flex d-lg-none ">
                   <form action="send/destruct.php" method="post" class="d-flex gap-3 mx-auto">
                               <p class="text-light h-100 d-flex align-items-center" >user : '.$_SESSION["name"].'</p>
                               <button type="submit" name="destruct" class="btn btn-outline-light rounded-circle border border-2"><i class="fa-solid fa-right-from-bracket"></i></button>

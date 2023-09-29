@@ -179,7 +179,6 @@ ul{
    transform-origin: center;
    transition:.3s ease;
    transform: translate(-50%,calc(-50% + var(--i) * 9px)) ;
-   
     
 }
 .navbar-toggler-custom-icon-animate{
@@ -191,6 +190,7 @@ ul{
       grid-template-columns: 1fr 1fr;
    }
 }
+
 @media screen and (min-width:1200px) {
    .cards{
       grid-template-columns: 1fr 1fr 1fr;

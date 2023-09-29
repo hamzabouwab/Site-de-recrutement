@@ -30,18 +30,7 @@ navLinks.forEach(item=>{
       stickAnima.style.left=current.left
    })
 })
-export function animate_navbar(){
-
-   //animate navbar icon 
-   const navbarToggler= document.querySelector(".navbar-toggler")
-   const navbarTogglerIcon= document.querySelectorAll(".navbar-toggler-custom-icon")
-   
-   navbarToggler.addEventListener("click",()=>{
-      navbarTogglerIcon.forEach(icon=>{
-         icon.classList.toggle("navbar-toggler-custom-icon-animate")
-      })
-   })
-}
+//Password input handler
 
 password.addEventListener("keydown",()=>{
    document.querySelectorAll(".invalid-feedback").forEach(element => {
@@ -54,6 +43,10 @@ password.addEventListener("keydown",()=>{
       password.classList.remove("is-valid")
    }
 })
+
+
+//Email input handler
+
 const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g
 
 email.addEventListener("keydown",()=>{
@@ -67,3 +60,14 @@ email.addEventListener("keydown",()=>{
       email.classList.remove("is-valid")
    }
 })
+   //animate navbar icon 
+   export function animate_navbar(){
+      const navbarToggler= document.querySelector(".navbar-toggler")
+      const navbarTogglerIcon= document.querySelectorAll(".navbar-toggler-custom-icon")
+      
+      navbarToggler.addEventListener("click",()=>{
+         navbarTogglerIcon.forEach(icon=>{
+            icon.classList.toggle("navbar-toggler-custom-icon-animate")
+         })
+      })
+   }

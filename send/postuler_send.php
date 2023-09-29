@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'sql.php';
+include 'ado.php';
 $nom_complet=trim($_POST['nom_complet']);
 $date_naiss=trim($_POST['date_naiss']);
 $cin=trim($_POST['cin']);
@@ -15,6 +15,4 @@ $ref=trim($_POST['ref']);
       }else{
          die('<h2>L\'nscription a echoué</h2>');
        }
-   
-
 ?>

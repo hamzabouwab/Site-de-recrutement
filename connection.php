@@ -23,7 +23,7 @@ if(isset($_SESSION["name"])){
 <body>
   <header>
     <!-- place navbar here -->
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark py-4">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-4">
          <div class="container d-flex align-items-center">
          <a class="navbar-brand fw-bolder " href="index.php"><i class="fa-sharp fa-solid fa-briefcase fa-2xl"></i></a>
           <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
@@ -34,7 +34,7 @@ if(isset($_SESSION["name"])){
           </button>
           <div class="collapse navbar-collapse" id="collapsibleNavId">
              <ul class="navbar-nav me-auto mt-lg-0 mx-auto text-center">
-                <span class="stick-animation d-none d-md-block"></span>
+                <span class="stick-animation d-none d-lg-block"></span>
                 <hr class="border-light">
                 <li class="nav-item">
                    <a class="nav-link active" href="index.php" >Accueil</a>
