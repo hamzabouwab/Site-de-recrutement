@@ -1,5 +1,9 @@
 <?php
 session_start();
+$_SESSION["validation"]="needs-validation";
+$_SESSION["email_feedback"]="";
+$_SESSION["password_feedback"]="";
+
 define('My site',true);
 ?>
 <!doctype html>

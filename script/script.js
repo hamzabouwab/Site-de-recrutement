@@ -1,6 +1,7 @@
 const navLinks= document.querySelectorAll('.nav-link')
 const stickAnima= document.querySelector('.stick-animation')
-const nav= document.querySelector('.navbar')
+const email= document.querySelector('#email')
+const password= document.querySelector('#password')
 
 const current={
    width:navLinks[0].offsetWidth+"px",
@@ -41,3 +42,28 @@ export function animate_navbar(){
       })
    })
 }
+
+password.addEventListener("keydown",()=>{
+   document.querySelectorAll(".invalid-feedback").forEach(element => {
+      element.innerHTML=""
+   });
+   password.classList.remove("is-invalid")
+   if(password.value.length >=8){
+      password.classList.add("is-valid")
+   }else{
+      password.classList.remove("is-valid")
+   }
+})
+const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g
+
+email.addEventListener("keydown",()=>{
+   document.querySelectorAll(".invalid-feedback").forEach(element => {
+      element.innerHTML=""
+   });
+   email.classList.remove("is-invalid")
+   if(email.value.match(regex) ){
+      email.classList.add("is-valid")
+   }else{
+      email.classList.remove("is-valid")
+   }
+})

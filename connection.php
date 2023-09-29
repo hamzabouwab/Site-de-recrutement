@@ -58,19 +58,27 @@ if(isset($_SESSION["name"])){
   </header>
   <main>
       <section>
-         <form action="send/login.php" method="post" class="fw-bolder" >
+         <form action="send/login.php" method="post" class="fw-bolder <?php echo $_SESSION['validation'];?>" >
             <div class="container d-flex justify-content-center align-items-center flex-column py-5" style="min-height: calc(100vh - 90px);">
                <div class="col-12 col-sm-8 col-md-6  mx-auto p-5 bg-white shadow-lg rounded-3">
 
-                  <div class="mb-3">
+                  <div class="mb-3 form-check p-0">
                      <label for="" class="form-label">Email</label>
-                     <input type="email" class="form-control" name="email" id="email" placeholder="abc@mail.com" required>
-
-
+                     <input type="email" class="form-control <?php echo $_SESSION['email_feedback'];?>" name="email" id="email" placeholder="abc@mail.com" required>
+                     <div name="email_feedback" class="invalid-feedback">
+                     <?php 
+                             print($_SESSION['invalid_email']);
+                     ?>
+                     </div>
                   </div>
-                  <div class="mb-3">
+                  <div class="mb-3 form-check p-0">
                      <label for="" class="form-label">Password</label>
-                     <input type="password" class="form-control" name="password" id="password" placeholder="*******" required minlength="8" maxlength="20">
+                     <input type="password" class="form-control <?php echo $_SESSION['password_feedback'];?>" name="password" id="password" placeholder="*******"  minlength="8" maxlength="20" required>
+                     <div name="password_feedback" class="invalid-feedback">
+                        <?php 
+                          print($_SESSION['invalid_password']);
+                        ?>
+                     </div>
                   </div>
                   <button type="submit" class="btn btn-dark rounded-pill" id="submit">Se connecter</button>
                </div>
