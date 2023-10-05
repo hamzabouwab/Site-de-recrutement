@@ -68,7 +68,7 @@ define('My site',true);
                   <hr class="border-light">
 
                         <div class=" ms-auto d-none d-lg-flex">
-                           <a href="connection.php" class="btn btn-outline-light rounded-0 border border-2">Se connecter</a>
+                           <a href="connection.php" class="btn btn-outline-light rounded-pill border border-2">Se connecter</a>
                         </div>';
             }else{
                echo '<div class="d-none d-lg-flex ms-auto">
@@ -108,25 +108,19 @@ define('My site',true);
             <h1 class="fade-in-left">
 TRAVAIL TEMPORAIRE ET RECRUTEMENT</h1>
             <p class="mb-4 fade-in-right" style="font-size:18px;font-weight: 600;">Vous êtes à la recherche d'un emploi ? Vous êtes au bon endroit.</p>
-            <a href="#offres">Nos offres !</a>
+            <a class="rounded" href="#offres">Nos offres !</a>
          </div>
       </section>
-      <section class="offres py-5 bg-light text-center" id="offres">
+      <section class="offres bg-white py-5 bg- text-center" id="offres">
             <div class="container py-5">
                <div class="mb-5">
-                  <h1 class="fw-bolder">LES OFFRES DISPONIBLES</h1>
-                  <hr>
+                  <h1 class="fw-bolder text-dark">LES OFFRES DISPONIBLES</h1>
 
                </div>
-                  <!-- <div class="mb-3">
-                     <input type="search" class="form-control text-center py-4 rounded-0 mx-0 border-0 bg-dark rounded-3 text-light shadow fw-bold" name="search" id="search" placeholder="Ecrire quelque chose à chercher">
-                  </div> -->
-                  <div class="cards position-relative" style="min-height:50vh;">
+
+                  <div class="cards position-relative text-dark" style="min-height:50vh">
                      <?php
-                        $server="localhost";
-                        $database="recrutement";
-                        $username="root";
-                        $password="";
+                        include 'send/ado.php';
                         $conn=mysqli_connect($server,$username,$password,$database);
                         if($conn->connect_error){
                            die("connection failed".$conn->connect_error);
@@ -139,52 +133,70 @@ TRAVAIL TEMPORAIRE ET RECRUTEMENT</h1>
                               
                               while($row=$result->fetch_assoc()){
                                  $btn='';
-                              if(!isset($_SESSION["name"])){
+                                 if(!isset($_SESSION["name"])){
+
                                  $btn='<div class="mt-auto ">
-                                 <a href="postuler.php" type="submit" class="btn btn-dark rounded-pill fw-bold col-12">Postuler</a>
+                                 <button type="submit" class="btn btn-dark rounded-pill fw-bold col-12">Postuler</button>
                                  </div>';
                               }
                                     echo '
                                     
-                                    <div class=" px-5 py-4 bg-light shadow rounded-3 d-flex flex-column text-start" >
+                                    <div class=" px-3 px-md-4 py-4 bg-light shadow shadow  text-start " >
+                                    <form method="post" action="send/redirect_postuler.php" class="h-100 d-flex flex-column"  >
+                                    
+                                    
+                                    <div class="mb-3">
+                                       <p  class="form-label text-decoration-underline">Réference :</p>
+                                       <p  class="lead fw-bold">'.$row['id'].'</p>
+                                       <input type="hidden" name="id" id="id" value="'.$row['id'].'">
+                                       </div>
 
-                                    <div class="mb-3 ">
-                                       <label for="" class="form-label text-muted ">Réference :</label>
-                                       <p  class="lead fw-bold ">'.$row['id'].'</p>
-                                    </div>
-                                    <div class="mb-3">
-                                       <label for="" class="form-label text-muted ">Nom d\'établissement :</label>
-                                       <p  class="lead fw-bold ">'.$row['recruteur'].'</p>
-                                    </div>
-                                    <div class="mb-3">
-                                       <label for="" class="form-label text-muted ">Date de début de depôt de dossiers :</label>
-                                       <p  class="lead fw-bold ">'.$row['date_debut'].'</p>
-                                    </div>
-                                    <div class="mb-3">
-                                       <label for="" class="form-label text-muted ">Date de fin de depôt de dossiers :</label>
-                                       <p  class="lead fw-bold ">'.$row['date_fin'].'</p>
-                                    </div>
-                                    <div class="mb-3">
-                                       <label for="" class="form-label text-muted ">Nombre de postes :</label>
-                                       <p  class="lead fw-bold ">'.$row['nombre_poste'].' poste(s)</p>
-                                    </div>
-                                    <div class="mb-3">
-                                       <label for="" class="form-label text-muted ">Grade :</label>
-                                       <p  class="lead fw-bold ">'.$row['grade'].'</p>
-                                    </div>
-                                    <div class="mb-3">
-                                       <label for="" class="form-label text-muted ">Spécialité :</label>
-                                       <p  class="lead fw-bold ">'.$row['specialite'].'</p>
+                                       <div class="mb-3">
+                                       <p class="form-label text-decoration-underline">Nom d\'établissement :</p>
+                                       <p  class="lead fw-bold" id="recruteur" name="recruteur">'.$row['recruteur'].'</p>
+                                       <input type="hidden" name="recruteur" id="recruteur" value="'.$row['recruteur'].'">
+                                       </div>
+
+                                       <div class="mb-3">
+                                       <p class="form-label text-decoration-underline">Date de début de depôt de dossiers :</p>
+                                       <p  class="lead fw-bold " id="date_debut" name="date_debut">'.$row['date_debut'].'</p>
+                                       <input type="hidden" name="date_debut" id="date_debut" value="'.$row['date_debut'].'">
+                                       </div>
+
+                                       <div class="mb-3">
+                                       <p class="form-label text-decoration-underline">Date de fin de depôt de dossiers :</p>
+                                       <p  class="lead fw-bold " id="date_fin" name="date_fin">'.$row['date_fin'].'</p>
+                                       <input type="hidden" name="date_fin" id="date_fin" value="'.$row['date_fin'].'">
+                                       </div>
+
+                                       <div class="mb-3">
+                                       <p  class="form-label text-decoration-underline">Nombre de postes :</p>
+                                       <p  class="lead fw-bold " id="nombre_poste" name="nombre_poste">'.$row['nombre_poste'].' poste(s)</p>
+                                       <input type="hidden" name="nombre_poste" id="nombre_poste" value="'.$row['nombre_poste'].'">
+                                       </div>
+
+                                       <div class="mb-3">
+                                       <p  class="form-label text-decoration-underline">Grade :</p>
+                                       <p  class="lead fw-bold " id="grade" name="grade">'.$row['grade'].'</p>
+                                       <input type="hidden" name="grade" id="grade" value="'.$row['grade'].'">
+                                       </div>
+                                       
+                                       <div class="mb-3">
+                                       <p  class="form-label  text-decoration-underline">Spécialité :</p>                                       
+                                       <p  class="lead fw-bold"  name="specialite" id="specialite" >'.$row['specialite'].'</p>
+                                       <input type="hidden" name="grade" id="grade" value="'.$row['specialite'].'">
                                     </div>
                                     '.$btn.
-                                    '</div>
+                                    '
+                                    </form>
+                                    </div>
                                     ';
                                  }
                               }
                            }
                      ?>
+                     </div>
                   </div>
-            </div>
       </section>
       <section id="a_propos" class="bg-dark text-light">
          <div class="container p-5">
@@ -215,6 +227,7 @@ TRAVAIL TEMPORAIRE ET RECRUTEMENT</h1>
          <li><a target="_blank" href="https://www.instagram.com/hamzabouwab/"><i class="fa fa-brands fa-instagram"></i></a></li>
       </ul>
     </div>
+
   </footer>
   <!-- Bootstrap JavaScript Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"

@@ -30,6 +30,8 @@ navLinks.forEach(item=>{
       stickAnima.style.left=current.left
    })
 })
+if(document.URL == "http://localhost:8080/recrutement/connection.php"   ){
+
 //Password input handler
 
 password.addEventListener("keydown",()=>{
@@ -43,8 +45,6 @@ password.addEventListener("keydown",()=>{
       password.classList.remove("is-valid")
    }
 })
-
-
 //Email input handler
 
 const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g
@@ -60,14 +60,7 @@ email.addEventListener("keydown",()=>{
       email.classList.remove("is-valid")
    }
 })
-   //animate navbar icon 
-   export function animate_navbar(){
-      const navbarToggler= document.querySelector(".navbar-toggler")
-      const navbarTogglerIcon= document.querySelectorAll(".navbar-toggler-custom-icon")
-      
-      navbarToggler.addEventListener("click",()=>{
-         navbarTogglerIcon.forEach(icon=>{
-            icon.classList.toggle("navbar-toggler-custom-icon-animate")
-         })
-      })
-   }
+
+
+}
+

@@ -98,7 +98,7 @@ define('My site',true);
                   </div>
                   <div class="mb-3">
                      <label for="" class="form-label">Date de debut de depôt de dossiers</label>
-                     <input type="date" class="custom-input" name="date_debut" id="date_debut"  required>
+                     <input type="date" class="custom-input" name="date_debut" id="date_debut"   required>
                   </div>
                   <div class="mb-3">
                      <label for="" class="form-label">Date de fin de depôt de dossiers</label>
@@ -106,7 +106,7 @@ define('My site',true);
                   </div>
                   <div class="mb-3">
                      <label for="" class="form-label">Nombre de postes</label>
-                     <input type="number" class="custom-input" name="nbr_poste" id="nbr_poste"  value="1" required>
+                     <input type="number" class="custom-input" name="nbr_poste" id="nbr_poste" min="1"  value="1" required>
                   </div>
                   <div class="mb-3">
                      <label for="" class="form-label">Grade</label>
@@ -141,7 +141,7 @@ define('My site',true);
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
 integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
   </script>
-  <script src="script/offres.js"></script>
+  <script type="module"  src="script/offres.js"></script>
   <script src="script/script.js"></script>
 </body>
 

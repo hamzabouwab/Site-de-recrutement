@@ -92,23 +92,23 @@ define('My site',true);
          <form action="send/postuler_send.php" method="post" class="fw-bolder" enctype="multipart/form-data">
             <div class="container d-flex justify-content-center align-items-center flex-column py-5" style="min-height: calc(100vh - 90px);">
                <div class="col-12 col-sm-8 col-md-6  mx-auto p-5 bg-white shadow-lg rounded-3">
-
-                  <div class="mb-3">
-                     <label for="" class="form-label">Nom complet</label>
-                     <input type="text" class="custom-input" name="nom_complet" id="nom_complet" required>
+               <div class="mb-5">
+                     <label for="ref"  class="form-label">Réference du concours</label>
+                     <input type="text" class="custom-input shadow border-secondary fw-bold text-uppercase " id="ref" name="ref" value='<?php echo $_SESSION["reference"]; ?>' disabled required>
                   </div>
                   <div class="mb-3">
-                     <label for="" class="form-label">Carte d'identite nationale</label>
-                     <input type="text" class="custom-input" name="cin" id="cin" minlength="8" maxlength="8" required>
+                     <label for="nom_complet" class="form-label">Nom complet</label>
+                     <input type="text" class="custom-input" id="nom_complet"  name="nom_complet" required>
                   </div>
                   <div class="mb-3">
-                     <label for="" class="form-label">Date de naissance</label>
-                     <input type="date" class="custom-input" name="date_naiss" id="date_naiss"  required>
+                     <label for="cin" class="form-label">Carte d'identite nationale</label>
+                     <input type="text" class="custom-input" id="cin" name="cin"  minlength="8" maxlength="8" required>
                   </div>
                   <div class="mb-3">
-                     <label for="" class="form-label">Réference du concours</label>
-                     <input type="text" class="custom-input" name="ref" id="ref" required>
+                     <label for="date_naiss"  class="form-label">Date de naissance</label>
+                     <input type="date" class="custom-input" id="date_naiss"  name="date_naiss" required>
                   </div>
+                  
                   <hr>
                   <button type="submit" class="btn btn-dark rounded-pill px-5 w-100 py-2" id="Postuler">Postuler</button>
                </div>

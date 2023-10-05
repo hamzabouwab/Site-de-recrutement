@@ -1,4 +1,17 @@
-import { animate_navbar } from "./script.js"
+
+//animate navbar icon 
+export function animate_navbar(){
+  const navbarToggler= document.querySelector(".navbar-toggler")
+  const navbarTogglerIcon= document.querySelectorAll(".navbar-toggler-custom-icon")
+  
+  navbarToggler.addEventListener("click",()=>{
+     navbarTogglerIcon.forEach(icon=>{
+        icon.classList.toggle("navbar-toggler-custom-icon-animate")
+     })
+  })
+}
+
+animate_navbar()
 
 const whatsapp = document.querySelector('#whatsapp')
 const hero= document.querySelector('.hero')
@@ -8,5 +21,3 @@ whatsapp.addEventListener("click",(e)=>{
    e.preventDefault()
    alert("HAMZA BOUWAB : +212-627-545-076")
 })
- 
-animate_navbar()

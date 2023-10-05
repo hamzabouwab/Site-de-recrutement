@@ -1,4 +1,3 @@
-import { animate_navbar } from "./script.js"
-
+import { animate_navbar } from "./index.js"
 
 animate_navbar()

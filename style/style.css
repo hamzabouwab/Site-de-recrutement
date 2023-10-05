@@ -75,9 +75,6 @@ body{
    gap:30px;
    display: grid;
 }
-.card{
-   display: inline-flex;
-}
 .custom-input{
    width: 100%;
    padding: 8px 15px;
@@ -110,12 +107,14 @@ body{
    display: grid;
    align-items: stretch;
    justify-content: center;
+   gap: 40px;
 }
 .social-media{
    display: flex;
    list-style: none;
-   gap:15px;
+   gap:30px;
 }
+
 .social-media li{
    width: 50px;
    aspect-ratio: 1;

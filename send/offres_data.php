@@ -15,7 +15,14 @@ $specialite = $_POST['specialite'];
     $stmt->bind_param("sssiss", $recruteur, $date_debut, $date_fin, $nombre_poste, $grade, $specialite);
     // Execute the statement
     if ($stmt->execute()) {
-        echo '<h3>Offre Ajoutée avec succés</h3>';
+        echo '<div class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+          <div class="toast-body">
+          Offre ajoutée avec succés !
+         </div>
+          <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+      </div>';
         header("refresh:5;url=../offres.php");
     } else {
         header("refresh:5;url=../offres.php");
