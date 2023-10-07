@@ -68,7 +68,7 @@ define('My site',true);
                   <hr class="border-light">
 
                         <div class=" ms-auto d-none d-lg-flex">
-                           <a href="connection.php" class="btn btn-outline-light rounded-pill border border-2">Se connecter</a>
+                           <a href="connection.php" class="btn btn-outline-light rounded-0 border border-2">Se connecter</a>
                         </div>';
             }else{
                echo '<div class="d-none d-lg-flex ms-auto">
