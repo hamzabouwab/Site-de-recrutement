@@ -94,7 +94,7 @@ define('My site',true);
                <div class="col-12 col-sm-8 col-md-6  mx-auto p-5 bg-white shadow-lg rounded-3">
                <div class="mb-5">
                      <label for="ref"  class="form-label">Réference du concours</label>
-                     <input type="text" class="custom-input shadow border-secondary fw-bold text-uppercase " id="ref" name="ref" value='<?php echo $_SESSION["reference"]; ?>' disabled required>
+                     <input type="text" class="custom-input shadow border-secondary fw-bold text-uppercase " id="ref" name="ref" value="<?php echo $_SESSION['reference']; ?>" readonly>
                   </div>
                   <div class="mb-3">
                      <label for="nom_complet" class="form-label">Nom complet</label>
