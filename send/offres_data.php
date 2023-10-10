@@ -1,12 +1,16 @@
 <?php
 include 'ado.php';
 // Get form data
-$recruteur = $_POST['recruteur'];
+$grade=str_replace("é","É",strtoupper($_POST['grade']));
+$grade=str_replace("è","È",strtoupper($_POST['grade']));
+$recruteur=str_replace("é","É",strtoupper($_POST['recruteur']));
+$recruteur=str_replace("è","È",strtoupper($_POST['recruteur']));
+$specialite=str_replace("é","É",strtoupper($_POST['specialite']));
+$specialite=str_replace("è","È",strtoupper($_POST['specialite']));
 $date_debut = $_POST['date_debut'];
 $date_fin = $_POST['date_fin'];
 $nombre_poste = $_POST['nbr_poste']; // Corrected the name to 'nbr_poste'
-$grade = $_POST['grade'];
-$specialite = $_POST['specialite'];
+
     // Construct the SQL query
     $sql = "INSERT INTO offres (recruteur, date_debut, date_fin, nombre_poste, grade, specialite) VALUES ( ? , ? , ? , ? , ? , ?)";
     // Prepare the statement

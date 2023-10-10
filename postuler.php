@@ -47,40 +47,47 @@ define('My site',true);
                      <a class="nav-link px-3" href="index.php#contact">Contact</a>
                   </li>
              </ul>
-            <?php
+             <?php
             if(!isset($_SESSION["name"])){
 
                   echo '
-                        <div class=" ms-auto d-none d-md-flex">
-                           <a href="connection.php" class="btn btn-outline-light rounded-0 border border-2">Se connecter</a>
+                  <hr class="border-light">
+
+                        <div class=" ms-auto d-none d-lg-flex">
+                           <a href="connection.php" class="btn btn-outline-light rounded-1 py-1 border border-2">Se connecter</a>
                         </div>';
             }else{
-               echo '<div class="d-none d-md-flex ms-auto">
-               <form action="send/destruct.php" method="post" class="d-flex gap-3">
-                           <p class="text-light h-100 d-flex align-items-center" >user : '.$_SESSION["name"].'</p>
-                           <button type="submit" name="destruct" class="btn btn-outline-light rounded-circle border border-2"><i class="fa-solid fa-right-from-bracket"></i></button>
-                           </form>
-                           </div>';
-                           
+               echo '
+               <div class="d-none d-lg-flex ms-auto">
+                  <form action="send/destruct.php" method="post" class="d-flex gap-3">
+                     <p class="text-light h-100 d-flex align-items-center" >user : '.$_SESSION["name"].'</p>
+                     <button type="submit" name="destruct" id="destruct" class="position-relative btn btn-outline-light rounded-circle border border-2" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Tooltip on bottom">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <span class="text-dark fw-bold bg-light p-2 rounded-3" id="deconnection">Déconnexion</span>
+                     </button>
+                  </form>
+               </div>';
             }
             ?>
             <?php
             if(!isset($_SESSION["name"])){
 
                   echo '
-                  <hr class="border-light">
-                  <div class=" d-flex d-md-none">
-                           <a href="connection.php" class="btn btn-outline-light rounded-2 border border-2 mx-auto">Se connecter</a>
-                        </div>';
+                   
+                  <div class="d-flex d-lg-none ">
+                     <a href="connection.php" class="btn btn-outline-light rounded-2 border border-2 mx-auto">Se connecter</a>
+                  </div>';
             }else{
-               echo '<hr class="border-light">
-               <div class="d-flex d-md-none ">
-               
-               <form action="send/destruct.php" method="post" class="d-flex gap-3 mx-auto">
-                           <p class="text-light h-100 d-flex align-items-center" >user : '.$_SESSION["name"].'</p>
-                           <button type="submit" name="destruct" class="btn btn-outline-light rounded-circle border border-2"><i class="fa-solid fa-right-from-bracket"></i></button>
-                           </form>
-                           </div>';
+                  echo '
+                  <hr class="border-light">
+                  <div class="d-flex d-lg-none ">
+                     <form action="send/destruct.php" method="post" class="d-flex gap-3 mx-auto">
+                        <p class="text-light h-100 d-flex align-items-center" >user : '.$_SESSION["name"].'</p>
+                        <button type="submit" name="destruct" class="btn btn-outline-light rounded-circle border border-2 border-light">
+                           <i class="fa-solid fa-right-from-bracket"></i>
+                        </button>
+                     </form>
+                  </div>';
             }
             ?>
             </div>
@@ -96,20 +103,23 @@ define('My site',true);
                      <label for="ref"  class="form-label">Réference du concours</label>
                      <input type="text" class="custom-input shadow border-secondary fw-bold text-uppercase " id="ref" name="ref" value="<?php echo $_SESSION['reference']; ?>" readonly>
                   </div>
+                  <hr class="col-10 mx-auto">
                   <div class="mb-3">
                      <label for="nom_complet" class="form-label">Nom complet</label>
                      <input type="text" class="custom-input" id="nom_complet"  name="nom_complet" required>
                   </div>
+                  <hr class="col-3 mx-auto">
                   <div class="mb-3">
                      <label for="cin" class="form-label">Carte d'identite nationale</label>
                      <input type="text" class="custom-input" id="cin" name="cin"  minlength="8" maxlength="8" required>
                   </div>
+                  <hr class="col-3 mx-auto">
                   <div class="mb-3">
                      <label for="date_naiss"  class="form-label">Date de naissance</label>
                      <input type="date" class="custom-input" id="date_naiss"  name="date_naiss" required>
                   </div>
                   
-                  <hr>
+                  <hr class="col-10 mx-auto">
                   <button type="submit" class="btn btn-dark rounded-pill px-5 w-100 py-2" id="Postuler">Postuler</button>
                </div>
             </div>

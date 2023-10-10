@@ -19,7 +19,7 @@ define('My site',true);
   <header>
     <!-- place navbar here -->
     <nav class="navbar navbar-expand-md navbar-dark bg-dark py-4">
-         <div class="container d-flex align-items-center">
+      <div class="container d-flex align-items-center">
          <a class="navbar-brand fw-bolder " href="index.php"><i class="fa-sharp fa-solid fa-briefcase fa-2xl"></i></a>
           <button class="navbar-toggler d-lg-none " type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
              aria-expanded="false" aria-label="Toggle navigation">
@@ -47,43 +47,44 @@ define('My site',true);
                      <a class="nav-link px-3" href="index.php#contact">Contact</a>
                   </li>
              </ul>
-            <?php
-            if(!isset($_SESSION["name"])){
-
-                  echo '
-                        <div class=" ms-auto d-none d-md-flex">
-                           <a href="connection.php" class="btn btn-outline-light rounded-0 border border-2">Se connecter</a>
-                        </div>';
-            }else{
-               echo '<div class="d-none d-md-flex ms-auto">
-               <form action="send/destruct.php" method="post" class="d-flex gap-3">
-                           <p class="text-light h-100 d-flex align-items-center" >user : '.$_SESSION["name"].'</p>
-                           <button type="submit" name="destruct" class="btn btn-outline-light rounded-circle border border-2"><i class="fa-solid fa-right-from-bracket"></i></button>
-                           </form>
-                           </div>';
-                           
-            }
-            ?>
-            <?php
+             <?php
             if(!isset($_SESSION["name"])){
 
                   echo '
                   <hr class="border-light">
-                  <div class=" d-flex d-md-none">
-                           <a href="connection.php" class="btn btn-outline-light rounded-2 border border-2 mx-auto">Se connecter</a>
+
+                        <div class=" ms-auto d-none d-lg-flex">
+                           <a href="connection.php" class="btn btn-outline-light rounded-1 border border-2">Se connecter</a>
                         </div>';
             }else{
-               echo '<hr class="border-light">
-               <div class="d-flex d-md-none ">
-               
-               <form action="send/destruct.php" method="post" class="d-flex gap-3 mx-auto">
+               echo '<div class="d-none d-lg-flex ms-auto">
+               <form action="send/destruct.php" method="post" class="d-flex gap-3">
                            <p class="text-light h-100 d-flex align-items-center" >user : '.$_SESSION["name"].'</p>
-                           <button type="submit" name="destruct" class="btn btn-outline-light rounded-circle border border-2"><i class="fa-solid fa-right-from-bracket"></i></button>
+                           <button type="submit" name="destruct" id="destruct" class="position-relative btn btn-outline-light rounded-circle border border-2" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Tooltip on bottom" ><i class="fa-solid fa-right-from-bracket"></i><span class="text-dark fw-bold bg-light p-2 rounded-3" id="deconnection">Déconnexion</span></button>
                            </form>
                            </div>';
             }
             ?>
-            </div>
+            <?php
+            if(!isset($_SESSION["name"])){
+
+                  echo '
+                   
+                  <div class="d-flex d-lg-none ">
+                           <a href="connection.php" class="btn btn-outline-light rounded-2 border border-2 mx-auto">Se connecter</a>
+                        </div>';
+            }else{
+                  echo '
+                  <hr class="border-light">
+                  <div class="d-flex d-lg-none ">
+                  <form action="send/destruct.php" method="post" class="d-flex gap-3 mx-auto">
+                              <p class="text-light h-100 d-flex align-items-center" >user : '.$_SESSION["name"].'</p>
+                              <button type="submit" name="destruct" class="btn btn-outline-light rounded-circle border border-2 border-light"><i class="fa-solid fa-right-from-bracket"></i></button>
+                              </form>
+                              </div>';
+            }
+            ?>
+         </div>
       </div>
     </nav>
   </header>
@@ -96,31 +97,36 @@ define('My site',true);
                      <label for="" class="form-label">Nom d'établissement</label>
                      <input type="text" class="custom-input" name="recruteur" id="recruteur" required>
                   </div>
+                  <hr class="col-3 mx-auto">
                   <div class="mb-3">
                      <label for="" class="form-label">Date de debut de depôt de dossiers</label>
                      <input type="date" class="custom-input" name="date_debut" id="date_debut"   required>
                   </div>
+                  <hr class="col-3 mx-auto">
                   <div class="mb-3">
                      <label for="" class="form-label">Date de fin de depôt de dossiers</label>
                      <input type="date" class="custom-input" name="date_fin" id="date_fin" required >
                   </div>
+                  <hr class="col-3 mx-auto">
                   <div class="mb-3">
                      <label for="" class="form-label">Nombre de postes</label>
                      <input type="number" class="custom-input" name="nbr_poste" id="nbr_poste" min="1"  value="1" required>
                   </div>
+                  <hr class="col-3 mx-auto">
                   <div class="mb-3">
                      <label for="" class="form-label">Grade</label>
                      <select class="form-select form-select-md custom-input" name="grade" id="grade" required>
                         <option selected disabled>-</option>
                      </select>
                   </div>
+                  <hr class="col-3 mx-auto">
                   <div class="mb-3">
                      <label for="" class="form-label">Spécialité</label>
                      <select class="form-select form-select-md custom-input" name="specialite" id="specialite" required>
                         <option selected disabled>-</option>
                      </select>
                   </div>
-                  <hr>
+                  <hr class="col-10 mx-auto">
                   <button type="submit" class="btn btn-dark rounded-pill px-5 w-100 py-2" id="ajouter">Ajouter</button>
                </div>
             </div>

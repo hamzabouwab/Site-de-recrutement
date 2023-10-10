@@ -3,13 +3,14 @@ session_start();
 $_SESSION["validation"]="needs-validation";
 $_SESSION["email_feedback"]="";
 $_SESSION["password_feedback"]="";
-
 define('My site',true);
 ?>
 <!doctype html>
 <html lang="en">
 <head>
   <title>Title</title>
+
+
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -68,15 +69,18 @@ define('My site',true);
                   <hr class="border-light">
 
                         <div class=" ms-auto d-none d-lg-flex">
-                           <a href="connection.php" class="btn btn-outline-light rounded-0 border border-2">Se connecter</a>
+                           <a href="connection.php" class="btn btn-outline-light rounded-1 border border-2 py-1">Se connecter</a>
                         </div>';
             }else{
-               echo '<div class="d-none d-lg-flex ms-auto">
-               <form action="send/destruct.php" method="post" class="d-flex gap-3">
-                           <p class="text-light h-100 d-flex align-items-center" >user : '.$_SESSION["name"].'</p>
-                           <button type="submit" name="destruct" id="destruct" class="position-relative btn btn-outline-light rounded-circle border border-2" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Tooltip on bottom" ><i class="fa-solid fa-right-from-bracket"></i><span class="text-dark fw-bold bg-light p-2 rounded-3" id="deconnection">Deconnection</span></button>
+                  echo '<div class="d-none d-lg-flex ms-auto">
+                           <form action="send/destruct.php" method="post" class="d-flex gap-3">
+                              <p class="text-light h-100 d-flex align-items-center" >user : '.$_SESSION["name"].'</p>
+                              <button type="submit" name="destruct" id="destruct" class="position-relative btn btn-outline-light rounded-circle border border-2" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Tooltip on bottom" >
+                                 <i class="fa-solid fa-right-from-bracket"></i>
+                                 <span class="text-dark fw-bold bg-light p-2 rounded-3" id="deconnection">Déconnexion</span>
+                              </button>
                            </form>
-                           </div>';
+                        </div>';
             }
             ?>
             <?php
@@ -105,10 +109,9 @@ define('My site',true);
   <main>
       <section class="hero bg-light">
          <div class="container d-flex justify-content-center align-items-center flex-column" style="min-height:70vh;">
-            <h1 class="fade-in-left">
-TRAVAIL TEMPORAIRE ET RECRUTEMENT</h1>
+            <h1 class="fade-in-left">TRAVAIL TEMPORAIRE ET RECRUTEMENT</h1>
             <p class="mb-4 fade-in-right" style="font-size:18px;font-weight: 600;">Vous êtes à la recherche d'un emploi ? Vous êtes au bon endroit.</p>
-            <a class="rounded" href="#offres">Nos offres !</a>
+            <a class="rounded-0 p-2 col-6" href="#offres">Nos offres !</a>
          </div>
       </section>
       <section class="offres bg-white py-5 bg- text-center" id="offres">
@@ -118,7 +121,7 @@ TRAVAIL TEMPORAIRE ET RECRUTEMENT</h1>
 
                </div>
 
-                  <div class="cards position-relative text-dark" style="min-height:50vh">
+                  <div class="cards position-relative text-dark pb-5 " style="min-height:50vh">
                      <?php
                         include 'send/ado.php';
                         $conn=mysqli_connect($server,$username,$password,$database);
@@ -130,8 +133,14 @@ TRAVAIL TEMPORAIRE ET RECRUTEMENT</h1>
                            if($result->num_rows==0){
                               echo '<h2 class="text-center w-100" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);">Pas d\'offres pour le moment !</h2>';
                            }else{
-                              
+                              function checkPlural($val){
+                                if($val==1){
+                                 return "";
+                                }
+                                return "S";
+                              }
                               while($row=$result->fetch_assoc()){
+                                 
                                  $btn='';
                                  if(!isset($_SESSION["name"])){
 
@@ -141,60 +150,63 @@ TRAVAIL TEMPORAIRE ET RECRUTEMENT</h1>
                               }
                                     echo '
                                     
-                                    <div class=" px-3 px-md-4 py-4 bg-light shadow shadow  text-start " >
+                                    <div class="article px-3 px-md-4 py-4 bg-light shadow shadow  text-start " >
                                     <form method="post" action="send/redirect_postuler.php" class="h-100 d-flex flex-column"  >
                                     
                                     
                                     <div class="mb-3">
-                                       <p  class="form-label text-decoration-underline">Réference :</p>
-                                       <p  class="lead fw-bold">'.$row['id'].'</p>
+                                       <p  class="form-label text-decoration-underline">Réference</p>
+                                       <p  class=" fw-bold">[ '.$row['id'].' ]</p>
                                        <input type="hidden" name="id" id="id" value="'.$row['id'].'">
                                        </div>
 
                                        <div class="mb-3">
-                                       <p class="form-label text-decoration-underline">Nom d\'établissement :</p>
-                                       <p  class="lead fw-bold" id="recruteur" name="recruteur">'.$row['recruteur'].'</p>
+                                       <p class="form-label text-decoration-underline">Nom d\'établissement</p>
+                                       <p  class=" fw-bold" id="recruteur" name="recruteur"- >[ '.$row['recruteur'].' ]</p>
                                        <input type="hidden" name="recruteur" id="recruteur" value="'.$row['recruteur'].'">
                                        </div>
 
                                        <div class="mb-3">
                                        <p class="form-label text-decoration-underline">Date de début de depôt de dossiers :</p>
-                                       <p  class="lead fw-bold " id="date_debut" name="date_debut">'.$row['date_debut'].'</p>
+                                       <p  class=" fw-bold " id="date_debut" name="date_debut">[ '.$row['date_debut'].'] </p>
                                        <input type="hidden" name="date_debut" id="date_debut" value="'.$row['date_debut'].'">
                                        </div>
 
                                        <div class="mb-3">
-                                       <p class="form-label text-decoration-underline">Date de fin de depôt de dossiers :</p>
-                                       <p  class="lead fw-bold " id="date_fin" name="date_fin">'.$row['date_fin'].'</p>
+                                       <p class="form-label text-decoration-underline">Date de fin de depôt de dossiers</p>
+                                       <p  class=" fw-bold " id="date_fin" name="date_fin">[ '.$row['date_fin'].' ]</p>
                                        <input type="hidden" name="date_fin" id="date_fin" value="'.$row['date_fin'].'">
                                        </div>
 
                                        <div class="mb-3">
-                                       <p  class="form-label text-decoration-underline">Nombre de postes :</p>
-                                       <p  class="lead fw-bold " id="nombre_poste" name="nombre_poste">'.$row['nombre_poste'].' poste(s)</p>
+                                       <p  class="form-label text-decoration-underline">Nombre de postes</p>
+                                       <p  class=" fw-bold " id="nombre_poste" name="nombre_poste">[ '.$row['nombre_poste'].' POSTE'.checkPlural($row["nombre_poste"]).' ]</p>
                                        <input type="hidden" name="nombre_poste" id="nombre_poste" value="'.$row['nombre_poste'].'">
                                        </div>
 
                                        <div class="mb-3">
-                                       <p  class="form-label text-decoration-underline">Grade :</p>
-                                       <p  class="lead fw-bold " id="grade" name="grade">'.$row['grade'].'</p>
+                                       <p  class="form-label text-decoration-underline">Grade</p>
+                                       <p  class=" fw-bold " id="grade" name="grade">[ '.$row['grade'].' ]</p>
                                        <input type="hidden" name="grade" id="grade" value="'.$row['grade'].'">
                                        </div>
                                        
                                        <div class="mb-3">
-                                       <p  class="form-label  text-decoration-underline">Spécialité :</p>                                       
-                                       <p  class="lead fw-bold"  name="specialite" id="specialite" >'.$row['specialite'].'</p>
+                                       <p  class="form-label  text-decoration-underline">Spécialité</p>                                       
+                                       <p  class=" fw-bold"  name="specialite" id="specialite" >[ '.$row['specialite'].' ]</p>
                                        <input type="hidden" name="grade" id="grade" value="'.$row['specialite'].'">
                                     </div>
                                     '.$btn.
                                     '
-                                    </form>
                                     </div>
+                                    </form>
                                     ';
                                  }
                               }
                            }
-                     ?>
+                           ?>
+                        <div class="mb-3 col-12 position-absolute" style="background-image:linear-gradient(transparent,#7771,transparent);backdrop-filter:blur(4px);bottom:-60px;padding-block:10px">
+                        <button class="border-2 btn btn-outline-dark rounded-pill fw-bold border-0" id="showMore" >Afficher plus d'offres</button>
+                        </div>
                      </div>
                   </div>
       </section>

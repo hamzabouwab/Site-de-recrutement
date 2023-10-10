@@ -2,7 +2,7 @@
 
 *{
    
-   font-family: Onest,'wix madefor display';
+   font-family: Onest,'wix madefor display',calibri;
 }
 body{
    overflow-x: hidden;
@@ -112,7 +112,7 @@ body{
 .social-media{
    display: flex;
    list-style: none;
-   gap:30px;
+   gap:20px;
 }
 
 .social-media li{
